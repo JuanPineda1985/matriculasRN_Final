@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert, StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native";
 
+
 export default class Persona extends React.Component
 // antes del render van las funciones
 {
@@ -11,21 +12,25 @@ export default class Persona extends React.Component
     this.state =
     {
     TextInput_id:'',
-    TextInput_nombre:'',
-    TextInput_creditos: '',
-    TextInput_tipo: '',
-    TextInput_curso: '',
-    TextInput_cuatrimestre: '',
-    TextInput_id_profesor: '',
-    TextInput_id_grado: ''
+    TextInput_nif:'',
+    TextInput_nombre: '',
+    TextInput_Apellido1: '',
+    TextInput_Apellido2: '',
+    TextInput_ciudad: '',
+    TextInput_clave: '',
+    TextInput_direccion: '',
+    TextInput_telefono: '',
+    TextInput_fecha_nacimiento: '',
+    TextInput_sexo: '',
+    TextInput_tipo: ''
     }
   }
   //Ahora creamos las funciones de esta clase
-  insertarAsignatura = () =>
+  insertarPersona = () =>
   {
 
     // Ahora vamos a consumir la API: APIMatriculasGrupoSabado
-    fetch ('http://192.168.0.17/APImatriculasGrupoSabado/modelo/insertarAsignatura.php',
+    fetch ('http://192.168.0.17/APImatriculasGrupoSabado/modelo/insertarPersona.php',
     {
       method:'POST',
       headers:{
@@ -35,13 +40,17 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
+          nif: this.state.TextInput_nif,
           nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado   
+          apellido1: this.state.TextInput_Apellido1,
+          apellido2: this.state.TextInput_Apellido2,
+          ciudad: this.state.TextInput_ciudad,
+          clave: this.state.TextInput_clave,
+          direccion: this.state.TextInput_direccion,
+          telefono: this.state.TextInput_telefono,
+          fecha_nacimiento: this.state.TextInput_fecha_nacimiento,
+          sexo: this.state.TextInput_sexo,
+          tipo: this.state.TextInput_tipo,     
         }
       )  
     }
@@ -71,13 +80,17 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
+          nif: this.state.TextInput_nif,
           nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado
+          apellido1: this.state.TextInput_Apellido1,
+          apellido2: this.state.TextInput_Apellido2,
+          ciudad: this.state.TextInput_ciudad,
+          clave: this.state.TextInput_clave,
+          direccion: this.state.TextInput_direccion,
+          telefono: this.state.TextInput_telefono,
+          fecha_nacimiento: this.state.TextInput_fecha_nacimiento,
+          sexo: this.state.TextInput_sexo,
+          tipo: this.state.TextInput_tipo
         }
       )
     }
@@ -133,13 +146,17 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
+          nif: this.state.TextInput_nif,
           nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado
+          Apellido1: this.state.TextInput_Apellido1,
+          Apellido2: this.state.TextInput_Apellido2,
+          ciudad: this.state.TextInput_ciudad,
+          clave: this.state.TextInput_clave,
+          direccion: this.state.TextInput_direccion,
+          telefono: this.state.TextInput_telefono,
+          fecha_nacimiento: this.state.TextInput_fecha_nacimiento,
+          sexo: this.state.TextInput_sexo,
+          tipo: this.state.TextInput_tipo
         }
       )
     }
@@ -148,13 +165,17 @@ export default class Persona extends React.Component
         {
           this.state(
           {
+          TextInput_nif: responsejson[0]['nif'],
           TextInput_nombre: responsejson[0]['nombre'],
-          TextInput_creditos: responsejson[0]['creditos'],
-          TextInput_tipo: responsejson[0]['tipo'],
-          TextInput_curso: responsejson[0]['curso'],
-          TextInput_cuatrimestre: responsejson[0]['cuatrimestre'],
-          TextInput_id_profesor: responsejson[0]['id_profesor'],
-          TextInput_id_grado: responsejson[0]['id_grado'] 
+          TextInput_Apellido1: responsejson[0]['Apellido1'],
+          TextInput_Apellido2: responsejson[0]['Apellido2'],
+          TextInput_ciudad: responsejson[0]['ciudad'],
+          TextInput_clave: responsejson[0]['clave'],
+          TextInput_direccion: responsejson[0]['direccion'],
+          TextInput_telefono: responsejson[0]['telefono'],
+          TextInput_fecha_nacimiento: responsejson[0]['fecha_nacimiento'],
+          TextInput_sexo: responsejson[0]['sexo'],
+          TextInput_tipo: responsejson[0]['tipo']
           })
           
         })
@@ -173,13 +194,17 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
+          nif: this.state.TextInput_nif,
           nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado
+          apellido1: this.state.TextInput_Apellido1,
+          apellido2: this.state.TextInput_Apellido2,
+          ciudad: this.state.TextInput_ciudad,
+          clave: this.state.TextInput_clave,
+          direccion: this.state.TextInput_direccion,
+          telefono: this.state.TextInput_telefono,
+          fecha_nacimiento: this.state.TextInput_fecha_nacimiento,
+          sexo: this.state.TextInput_sexo,
+          tipo: this.state.TextInput_tipo
         }
       )
     }
@@ -188,13 +213,18 @@ export default class Persona extends React.Component
         {
           this.state(
           {
-            TextInput_nombre: responsejson[0]['nombre'],
-            TextInput_creditos: responsejson[0]['creditos'],
-            TextInput_tipo: responsejson[0]['tipo'],
-            TextInput_curso: responsejson[0]['curso'],
-            TextInput_cuatrimestre: responsejson[0]['cuatrimestre'],
-            TextInput_id_profesor: responsejson[0]['id_profesor'],
-            TextInput_id_grado: responsejson[0]['id_grado']
+          
+          TextInput_nif: responsejson[0]['nif'],
+          TextInput_nombre: responsejson[0]['nombre'],
+          TextInput_apellido1: responsejson[0]['Apellido1'],
+          TextInput_apellido2: responsejson[0]['Apellido2'],
+          TextInput_ciudad: responsejson[0]['ciudad'],
+          TextInput_clave: responsejson[0]['clave'],
+          TextInput_direccion: responsejson[0]['direccion'],
+          TextInput_telefono: responsejson[0]['telefono'],
+          TextInput_fecha_nacimiento: responsejson[0]['fecha_nacimiento'],
+          TextInput_sexo: responsejson[0]['sexo'],
+          TextInput_tipo: responsejson[0]['tipo']
           })
           
         })
@@ -207,7 +237,7 @@ render()
     return(
       <View style={MisEstilos.MainContainer}>
        <View>
-        <Text style= {{fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>Registo de Asignatura</Text>
+        <Text style= {{fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>Registo de Personal</Text>
           <TextInput placeholder="Ingrese ID personal"
           onChangeText = {TextInputValue => this.setState
           ({
@@ -219,90 +249,151 @@ render()
           >
           </TextInput>
         </View>
+        <View>
         <TextInput
-        placeholder="Ingrese el nombre"
+        placeholder="Ingrese el nif"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_nif: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_nombre}
+        value={this.state.TextInput_nif}
         autoFocus={true}
         >
         </TextInput>
+        </View>
+        <View>
         <TextInput
-        placeholder="Ingrese cantidad de creditos"
+        placeholder="Nombres Completos"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_nombre: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_creditos}
+        value={this.state.TextInput_nombre}
         >
-        
         </TextInput>
+        </View>
+        <View>
         <TextInput
-        placeholder="Ingrese el tipo"
+        placeholder="Primer Apellido"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_Apellido1: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_tipo}
+        value={this.state.TextInput_apellido1}
         >
         </TextInput>
+        
         <TextInput
-        placeholder="Ingrese el curso"
+        placeholder="Segundo Apellido"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_Apellido2: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_curso}
+        value={this.state.TextInput_apellido2}
         >
         </TextInput>
+        </View>
+        <View>
         <TextInput
-        placeholder="Ingrese el cuatrimestre"
+        placeholder="Ciudad de Residencia"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_ciudad: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_cuatrimestre}
+        value={this.state.TextInput_ciudad}
         >
         </TextInput>
+        </View>
+        <View>
         <TextInput
-        placeholder="Ingrese id del Profesor"
+        placeholder="Ingrese Contraseña"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_clave: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_id_profesor}
+        value={this.state.TextInput_clave}
         >
         </TextInput>
+        </View>
+        <View>
         <TextInput
-        placeholder="Ingrese el id del grado"
+        placeholder="Lugar de Residencia"
         onChangeText = {TextInputValue =>  this.setState
         ({
           TextInput_direccion: TextInputValue
         })}
         underlineColorAndroid='transparent'
         style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_id_grado}
+        value={this.state.TextInput_direccion}
         >
         </TextInput>
+        </View>
+        <View>
+        <TextInput
+        placeholder="Ingrese el telefono"
+        onChangeText = {TextInputValue =>  this.setState
+        ({
+          TextInput_telefono: TextInputValue
+        })}
+        underlineColorAndroid='transparent'
+        style={MisEstilos.TextInputStyleClass}
+        value={this.state.TextInput_telefono}
+        >
+        </TextInput>
+        </View>
+        <View>
+        <TextInput
+        placeholder="fecha de nacimiento"
+        onChangeText = {TextInputValue =>  this.setState
+        ({
+          TextInput_fecha_nacimiento: TextInputValue
+        })}
+        underlineColorAndroid='transparent'
+        style={MisEstilos.TextInputStyleClass}
+        value={this.state.TextInput_fecha_nacimiento}
+        >
+        </TextInput>
+        <TextInput
+        placeholder="Ingrese el sexo de la persona"
+        onChangeText = {TextInputValue =>  this.setState
+        ({
+          TextInput_sexo: TextInputValue
+        })}
+        underlineColorAndroid='transparent'
+        style={MisEstilos.TextInputStyleClass}
+        value={this.state.TextInput_sexo}
+        >
+        </TextInput>
+        </View>
+        <View>
+        <TextInput
+        placeholder="Ingrese el tipo"
+        onChangeText = {TextInputValue =>  this.setState
+        ({
+          TextInput_tipo: TextInputValue
+        })}
+        underlineColorAndroid='transparent'
+        style={MisEstilos.TextInputStyleClass}
+        value={this.state.TextInput_tipo}
+        >
+        </TextInput>
+        </View>
         <TouchableOpacity
-          
           activityOpacity={0.4}
           style={MisEstilos.TouchableOpacityStyleClass}
-          onPress={this.insertarAsignatura}
+          onPress={this.insertarPersona}
         >
           <Text style={MisEstilos.TouchableOpacityStyleClass}>Registrar</Text>
         </TouchableOpacity>
@@ -335,12 +426,12 @@ const MisEstilos = StyleSheet.create (
     TouchableOpacityStyleClass:
     {
       textAlign:"center",
-      paddingTop: 10,
-      paddingBottom: 10,
+      paddingTop: 5,
+      paddingBottom: 5,
       borderRadius: 5,
       marginBottom: 7,
       width: '90%',
-      backgroundColor: '#08BCD4',
+      backgroundColor: '#F0EB0A',
     },
     TextStyle:
     {

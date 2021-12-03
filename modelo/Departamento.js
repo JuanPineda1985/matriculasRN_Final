@@ -11,21 +11,15 @@ export default class Persona extends React.Component
     this.state =
     {
     TextInput_id:'',
-    TextInput_nombre:'',
-    TextInput_creditos: '',
-    TextInput_tipo: '',
-    TextInput_curso: '',
-    TextInput_cuatrimestre: '',
-    TextInput_id_profesor: '',
-    TextInput_id_grado: ''
+    TextInput_nombre:''
     }
   }
   //Ahora creamos las funciones de esta clase
-  insertarAsignatura = () =>
+  insertarDepartamento = () =>
   {
 
     // Ahora vamos a consumir la API: APIMatriculasGrupoSabado
-    fetch ('http://192.168.0.17/APImatriculasGrupoSabado/modelo/insertarAsignatura.php',
+    fetch ('http://192.168.0.17/APImatriculasGrupoSabado/modelo/insertarDepartamento.php',
     {
       method:'POST',
       headers:{
@@ -35,13 +29,7 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
-          nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado   
+          nombre: this.state.TextInput_nombre  
         }
       )  
     }
@@ -71,13 +59,7 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
-          nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado
+          nombre: this.state.TextInput_nombre
         }
       )
     }
@@ -133,13 +115,7 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
-          nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado
+          nombre: this.state.TextInput_nombre
         }
       )
     }
@@ -148,13 +124,8 @@ export default class Persona extends React.Component
         {
           this.state(
           {
-          TextInput_nombre: responsejson[0]['nombre'],
-          TextInput_creditos: responsejson[0]['creditos'],
-          TextInput_tipo: responsejson[0]['tipo'],
-          TextInput_curso: responsejson[0]['curso'],
-          TextInput_cuatrimestre: responsejson[0]['cuatrimestre'],
-          TextInput_id_profesor: responsejson[0]['id_profesor'],
-          TextInput_id_grado: responsejson[0]['id_grado'] 
+          TextInput_id: responsejson[0]['id'],
+          TextInput_nombre: responsejson[0]['nombre'] 
           })
           
         })
@@ -173,13 +144,7 @@ export default class Persona extends React.Component
       body: JSON.stringify(
         {
           id: this.state.TextInput_id,
-          nombre: this.state.TextInput_nombre,
-          creditos: this.state.TextInput_creditos,
-          tipo: this.state.TextInput_tipo,
-          curso: this.state.TextInput_curso,
-          cuatrimestre: this.state.TextInput_cuatrimestre,
-          id_profesor: this.state.TextInput_id_profesor,
-          id_grado: this.state.TextInput_id_grado
+          nombre: this.state.TextInput_nombre
         }
       )
     }
@@ -188,27 +153,21 @@ export default class Persona extends React.Component
         {
           this.state(
           {
-            TextInput_nombre: responsejson[0]['nombre'],
-            TextInput_creditos: responsejson[0]['creditos'],
-            TextInput_tipo: responsejson[0]['tipo'],
-            TextInput_curso: responsejson[0]['curso'],
-            TextInput_cuatrimestre: responsejson[0]['cuatrimestre'],
-            TextInput_id_profesor: responsejson[0]['id_profesor'],
-            TextInput_id_grado: responsejson[0]['id_grado']
+            TextInput_id: responsejson[0]['id'],
+            TextInput_nombre: responsejson[0]['nombre'] 
           })
           
         })
 
   }
 
-
 render()
   {
     return(
       <View style={MisEstilos.MainContainer}>
        <View>
-        <Text style= {{fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>Registo de Asignatura</Text>
-          <TextInput placeholder="Ingrese ID personal"
+        <Text style= {{fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>Registo de departamento</Text>
+          <TextInput placeholder="Ingrese el id"
           onChangeText = {TextInputValue => this.setState
           ({
             TextInput_id: TextInputValue
@@ -231,78 +190,12 @@ render()
         autoFocus={true}
         >
         </TextInput>
-        <TextInput
-        placeholder="Ingrese cantidad de creditos"
-        onChangeText = {TextInputValue =>  this.setState
-        ({
-          TextInput_nombre: TextInputValue
-        })}
-        underlineColorAndroid='transparent'
-        style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_creditos}
-        >
         
-        </TextInput>
-        <TextInput
-        placeholder="Ingrese el tipo"
-        onChangeText = {TextInputValue =>  this.setState
-        ({
-          TextInput_Apellido1: TextInputValue
-        })}
-        underlineColorAndroid='transparent'
-        style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_tipo}
-        >
-        </TextInput>
-        <TextInput
-        placeholder="Ingrese el curso"
-        onChangeText = {TextInputValue =>  this.setState
-        ({
-          TextInput_Apellido2: TextInputValue
-        })}
-        underlineColorAndroid='transparent'
-        style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_curso}
-        >
-        </TextInput>
-        <TextInput
-        placeholder="Ingrese el cuatrimestre"
-        onChangeText = {TextInputValue =>  this.setState
-        ({
-          TextInput_ciudad: TextInputValue
-        })}
-        underlineColorAndroid='transparent'
-        style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_cuatrimestre}
-        >
-        </TextInput>
-        <TextInput
-        placeholder="Ingrese id del Profesor"
-        onChangeText = {TextInputValue =>  this.setState
-        ({
-          TextInput_clave: TextInputValue
-        })}
-        underlineColorAndroid='transparent'
-        style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_id_profesor}
-        >
-        </TextInput>
-        <TextInput
-        placeholder="Ingrese el id del grado"
-        onChangeText = {TextInputValue =>  this.setState
-        ({
-          TextInput_direccion: TextInputValue
-        })}
-        underlineColorAndroid='transparent'
-        style={MisEstilos.TextInputStyleClass}
-        value={this.state.TextInput_id_grado}
-        >
-        </TextInput>
         <TouchableOpacity
           
           activityOpacity={0.4}
           style={MisEstilos.TouchableOpacityStyleClass}
-          onPress={this.insertarAsignatura}
+          onPress={this.insertarDepartamento}
         >
           <Text style={MisEstilos.TouchableOpacityStyleClass}>Registrar</Text>
         </TouchableOpacity>
